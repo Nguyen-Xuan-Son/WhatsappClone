@@ -20,11 +20,12 @@ export type Message = {
   id: string;
   content: string;
   createdAt: string;
-  user: User;
+  user?: User;
+  userId?: string;
 };
 
 export type ChatItem = {
   id: string;
-  users: [User];
+  users: User[];
   lastMessage: Message;
 };
