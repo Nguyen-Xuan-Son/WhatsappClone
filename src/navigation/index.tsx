@@ -1,8 +1,3 @@
-/**
- * If you are not familiar with React Navigation, check out the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
 import {
   NavigationContainer,
   DefaultTheme,
@@ -10,12 +5,14 @@ import {
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
-import { ColorSchemeName } from "react-native";
+import { ColorSchemeName, View } from "react-native";
+import { Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import NotFoundScreen from "../screens/NotFoundScreen";
 import { RootStackParamList } from "../models/types";
-import BottomTabNavigator from "./BottomTabNavigator";
+import MainTabNavigator from "./MainTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
+import COLORS from "../constants/Colors";
 
 export default function Navigation({
   colorScheme,
@@ -32,14 +29,56 @@ export default function Navigation({
   );
 }
 
-// A root stack navigator is often used for displaying modals on top of all other content
-// Read more here: https://reactnavigation.org/docs/modal
 const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: COLORS.light.tint,
+          shadowOpacity: 0,
+          elevation: 0,
+        },
+        headerTintColor: COLORS.light.background,
+        headerTitleAlign: "left",
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 26,
+        },
+      }}
+    >
+      <Stack.Screen
+        name="Root"
+        component={MainTabNavigator}
+        options={{
+          title: "WhatsApp",
+          headerRight: () => {
+            return (
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: 60,
+                  marginRight: 10,
+                }}
+              >
+                <Octicons
+                  name="search"
+                  size={24}
+                  color={COLORS.light.tabIconDefault}
+                />
+                <MaterialCommunityIcons
+                  name="dots-vertical"
+                  size={24}
+                  color={COLORS.light.tabIconDefault}
+                />
+              </View>
+            );
+          },
+        }}
+      />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
