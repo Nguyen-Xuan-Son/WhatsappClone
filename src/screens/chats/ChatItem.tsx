@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Image } from "react-native";
+import dayjs from "dayjs";
 
 import { Text, View } from "../../components/Themed";
 import { ChatItem as Item } from "../../models/types";
@@ -20,14 +21,16 @@ export default function ChatItem(props: ChatItemProps) {
       <View style={styles.contentContainer}>
         <View style={styles.headerContainer}>
           <View>
-            <Text>{chat.users[1].name}</Text>
+            <Text style={styles.nameHeader}>{chat.users[1].name}</Text>
           </View>
           <View>
-            <Text>{chat.lastMessage.createdAt}</Text>
+            <Text style={styles.time}>
+              {dayjs(chat.lastMessage.createdAt).format("DD/MM/YYYY")}
+            </Text>
           </View>
         </View>
         <View>
-          <Text>{chat.lastMessage.content}</Text>
+          <Text style={styles.message}>{chat.lastMessage.content}</Text>
         </View>
       </View>
     </View>
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
   },
   avatar: { width: 60, height: 60, borderRadius: 50 },
   contentContainer: {
-    marginLeft: 10,
+    marginHorizontal: 10,
     flex: 1,
     height: "100%",
     justifyContent: "space-evenly",
@@ -58,5 +61,18 @@ const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  nameHeader: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  message: {
+    color: "gray",
+    fontSize: 16,
+  },
+  time: {
+    color: "gray",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
