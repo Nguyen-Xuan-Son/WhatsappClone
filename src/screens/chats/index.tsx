@@ -4,6 +4,7 @@ import { StyleSheet, FlatList } from "react-native";
 import { ChatItem as Item } from "../../models/types";
 import ChatItem from "./ChatItem";
 import { View } from "../../components/Themed";
+import NewMessageButton from "./NewMessageButton";
 import chatMock from "./../../mock/ChatRooms";
 
 export default function Chats() {
@@ -16,6 +17,7 @@ export default function Chats() {
         renderItem={({ item }: { item: Item }) => <ChatItem chat={item} />}
         keyExtractor={(item) => item.id}
       />
+      <NewMessageButton />
     </View>
   );
 }

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, FlatList, TextInput, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  FlatList,
+  TextInput,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { View } from "../../components/Themed";
@@ -16,6 +22,16 @@ export default function ChatRoom() {
 
   const handelChangeMessage = (e: string) => {
     setMessage(e);
+  };
+
+  const handleSendMessage = () => {
+    // TODO
+    console.warn("This is message: " + message);
+    setMessage("");
+  };
+
+  const handleRecordVoice = () => {
+    // TODO
   };
 
   return (
@@ -47,7 +63,7 @@ export default function ChatRoom() {
                 style={styles.input}
                 onChangeText={handelChangeMessage}
                 value={message}
-                multiline={true}
+                multiline
                 placeholder="Type a message"
                 keyboardType="ascii-capable"
               />
@@ -64,12 +80,25 @@ export default function ChatRoom() {
             </View>
           </View>
           <View style={styles.recordVoice}>
-            <MaterialCommunityIcons
-              name="microphone-outline"
-              size={24}
-              color={COLORS.light.background}
-            />
+            <TouchableOpacity onPress={handleRecordVoice}>
+              <MaterialCommunityIcons
+                name="microphone-outline"
+                size={24}
+                color={COLORS.light.background}
+              />
+            </TouchableOpacity>
           </View>
+          {message ? (
+            <TouchableOpacity onPress={handleSendMessage}>
+              <View style={styles.sendIcon}>
+                <MaterialCommunityIcons
+                  name="send"
+                  size={24}
+                  color={COLORS.light.tint}
+                />
+              </View>
+            </TouchableOpacity>
+          ) : null}
         </View>
       </ImageBackground>
     </View>
@@ -116,16 +145,18 @@ const styles = StyleSheet.create({
   },
   inputItem: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   input: {
-    borderRadius: 30,
-    fontSize: 18,
+    fontSize: 20,
+    width: "100%",
   },
   attachmentIcon: {
     width: 30,
     height: 30,
     borderRadius: 50,
-    marginRight: 10,
+    marginHorizontal: 10,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -145,5 +176,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     color: "#fff",
     backgroundColor: COLORS.light.tint,
+  },
+  sendIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    marginLeft: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    color: COLORS.light.tint,
+    backgroundColor: "#fff",
   },
 });
