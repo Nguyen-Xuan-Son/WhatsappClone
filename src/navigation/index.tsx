@@ -9,7 +9,8 @@ import { ColorSchemeName, View, Text, Image } from "react-native";
 import { Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import NotFoundScreen from "../screens/NotFoundScreen";
-import ChatRoom from "../screens/chats//ChatRoom";
+import ChatRoom from "../screens/chats/ChatRoom";
+import Contacts from "../screens/contacts";
 import { RootStackParamList } from "../models/types";
 import MainTabNavigator from "./MainTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
@@ -142,6 +143,11 @@ function RootNavigator() {
             );
           },
         })}
+      />
+      <Stack.Screen
+        name="Contacts"
+        component={Contacts}
+        options={{ title: "Contacts" }}
       />
       <Stack.Screen
         name="NotFound"

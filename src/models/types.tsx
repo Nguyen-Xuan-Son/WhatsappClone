@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   Root: undefined;
   ChatRoom: undefined;
+  Contacts: undefined;
   NotFound: undefined;
 };
 
@@ -14,6 +15,7 @@ export type MainTabParamList = {
 export type User = {
   id: string;
   name: string;
+  status?: string;
   imageUri?: string;
 };
 

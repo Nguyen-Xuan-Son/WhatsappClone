@@ -1,13 +1,16 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import COLORS from "../../constants/Colors";
 import { View } from "../../components/Themed";
 
 export default function NewMessageButton() {
+  const route = useNavigation();
+
   const handleOnPress = () => {
-    console.warn("Handle on press"); // TODO
+    route.navigate("Contacts"); // TODO
   };
 
   return (

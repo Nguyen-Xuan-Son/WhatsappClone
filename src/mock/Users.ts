@@ -23,6 +23,7 @@ export default [
     name: "Alex",
     imageUri:
       "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/3.png",
+    status: "Hello there, how are you",
   },
   {
     id: "u5",
@@ -53,6 +54,7 @@ export default [
     name: "Mom",
     imageUri:
       "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/8.png",
+    status: "Hello there, how are you",
   },
   {
     id: "u10",
