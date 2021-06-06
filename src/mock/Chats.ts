@@ -74,7 +74,57 @@ export default {
       id: "m7",
       content:
         "Big Data is really interesting. Cannot wait to go through all the material.",
-      createdAt: "2020-10-03T14:53:00.000Z",
+      createdAt: "2021-06-06T12:48:10.000Z",
+      user: {
+        id: "u1",
+        name: "Vadim",
+      },
+    },
+    {
+      id: "m8",
+      content:
+        "Big Data is really interesting. Cannot wait to go through all the material.",
+      createdAt: "2021-06-06T12:48:10.000Z",
+      user: {
+        id: "u2",
+        name: "Lukas",
+      },
+    },
+    {
+      id: "m13",
+      content:
+        "Big Data is really interesting. Cannot wait to go through all the material.",
+      createdAt: "2021-06-06T12:48:10.000Z",
+      user: {
+        id: "u1",
+        name: "Vadim",
+      },
+    },
+    {
+      id: "m10",
+      content:
+        "Big Data is really interesting. Cannot wait to go through all the material.",
+      createdAt: "2021-06-06T12:48:10.000Z",
+      user: {
+        id: "u2",
+        name: "Lukas",
+      },
+    },
+    {
+      id: "m11",
+      content:
+        "Big Data is really interesting. Cannot wait to go through all the material.",
+      createdAt: "2021-06-06T12:48:10.000Z",
+      user: {
+        id: "u1",
+        name: "Vadim",
+      },
+    },
+    {
+      id: "m12",
+      content:
+        "Big Data is really interesting. Cannot wait to go through all the material.",
+      createdAt: "2021-06-06T12:48:10.000Z",
       user: {
         id: "u1",
         name: "Vadim",

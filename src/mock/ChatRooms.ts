@@ -20,7 +20,7 @@ export default [
       userId: "u1",
       content:
         "Well done this sprint, guys!Well done this sprint, guys!Well done this sprint, guys!",
-      createdAt: "2020-10-03T14:48:00.000Z",
+      createdAt: "2021-06-05T14:48:00.000Z",
     },
   },
   {

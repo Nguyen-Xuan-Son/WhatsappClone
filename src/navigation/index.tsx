@@ -5,10 +5,11 @@ import {
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
-import { ColorSchemeName, View } from "react-native";
+import { ColorSchemeName, View, Text, Image } from "react-native";
 import { Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import NotFoundScreen from "../screens/NotFoundScreen";
+import ChatRoom from "../screens/chats//ChatRoom";
 import { RootStackParamList } from "../models/types";
 import MainTabNavigator from "./MainTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
@@ -78,6 +79,69 @@ function RootNavigator() {
             );
           },
         }}
+      />
+      <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoom}
+        options={({ route }: { route: any }) => ({
+          headerBackTitle: "",
+          headerTitle: () => {
+            return (
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <Image
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 50,
+                    marginHorizontal: 10,
+                  }}
+                  source={{ uri: route.params?.uri }}
+                />
+                <View>
+                  <Text
+                    style={{ color: "#fff", fontSize: 18, fontWeight: "bold" }}
+                  >
+                    {route?.params?.name}
+                  </Text>
+                </View>
+              </View>
+            );
+          },
+          headerRight: () => {
+            return (
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: 100,
+                  marginRight: 10,
+                }}
+              >
+                <MaterialCommunityIcons
+                  name="video"
+                  size={24}
+                  color={COLORS.light.tabIconDefault}
+                />
+                <MaterialCommunityIcons
+                  name="phone"
+                  size={24}
+                  color={COLORS.light.tabIconDefault}
+                />
+                <MaterialCommunityIcons
+                  name="dots-vertical"
+                  size={24}
+                  color={COLORS.light.tabIconDefault}
+                />
+              </View>
+            );
+          },
+        })}
       />
       <Stack.Screen
         name="NotFound"
